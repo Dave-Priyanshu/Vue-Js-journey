@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue Js</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        #heading {
+            display: flex;              
+            justify-content: center;
+            height: 30px;              
+            padding: 10px;
+            border-radius: 10px;
+            width: 800px;
+            font-size: 24px;            
+            font-family: Arial, sans-serif; 
+            color: white;               
+            background-color: teal;     
+            margin: 0;                  
+            }
+    </style>
+</head>
+<body>
+    <p id="heading">Learning Vue Js</p>
+    
+    <div id="app" style="background-color:teal; color: white; padding: 10px; margin-top: 10px; width: 800px;height: 210px; border-radius: 10px; ">
+        <h1><label for="test">Out side the mount method nothing will work</label></h1>
+        <p>The Title of the book is <b>{{ title }}</b></p>
+        <p>The name of the Author is <b>{{ author }}</b></p>
+        <p>The age of the Author is <b>{{ age }}</b></p>
+
+        <button v-on:click="age++" style="float: left;">Increase Age</button>
+        <button v-on:click="age--" style="float: right;">Decrease Age</button>
+        
+        <!-- <div @click="title = 'Some New Title'">Change title</div> -->
+        <div @click="changeTitle('book by obama son')">Change title</div>
+    </div><br>
+    
+    
+    <div id="test" style="background-color:firebrick; color: white; padding: 10px; margin-top: 10px; width: 800px;height: 210px; border-radius: 10px; ">
+        <h1><label for="test">Out side the mount method nothing will work</label></h1>
+        <p>The Title of the book is <b>{{ title }}</b></p>
+        <p>The name of the Author is <b>{{ author }}</b></p>
+        <p>The age of the Author is <b>{{ age }}</b></p>
+
+        <button v-on:click="age++" style="float: left;">Increase Age</button>
+        <button v-on:click="age--" style="float: right;">Decrease Age</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
