@@ -12,8 +12,6 @@
             width: 100%;
         }
         #heading {
-            text-shadow: 2px 1px 2px black;
-            box-shadow: 2px 1px 4px teal;
             display: flex;              
             justify-content: center;
             align-items: center;
@@ -33,6 +31,21 @@
             width: 800px;
             height: auto;
             border-radius: 10px;
+        }
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            text-decoration: none;
+            color: #008080;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #004d40;
         }
     </style>
 </head>
@@ -86,7 +99,9 @@
         <button @click="changeTitle('book by obama son')" style="margin-left:240px; border-radius: 5px;;">Change title</button>
         </div>
     </div>
-    </div>
+</div>
+
+<a href="mouse_events.html">Mouse Click Events</a>
 
     <script src="app.js"></script>
 </body>
