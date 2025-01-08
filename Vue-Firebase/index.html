@@ -6,46 +6,86 @@
     <title>Learning Vue Js</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
+        #container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
         #heading {
+            text-shadow: 2px 1px 2px black;
+            box-shadow: 2px 1px 4px teal;
             display: flex;              
             justify-content: center;
+            align-items: center;
             height: 30px;              
             padding: 10px;
             border-radius: 10px;
-            width: 800px;
-            font-size: 24px;            
+            font-size: 24px;
             font-family: Arial, sans-serif; 
             color: white;               
             background-color: teal;     
-            margin: 0;                  
-            }
+            margin: 0;             
+        }
+        #app,#test {
+            color: white;
+            padding: 10px;
+            margin: 10px 10px;
+            width: 800px;
+            height: auto;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <p id="heading">Learning Vue Js</p>
     
-    <div id="app" style="background-color:teal; color: white; padding: 10px; margin-top: 10px; width: 800px;height: 210px; border-radius: 10px; ">
-        <h1><label for="test">Out side the mount method nothing will work</label></h1>
-        <p>The Title of the book is <b>{{ title }}</b></p>
-        <p>The name of the Author is <b>{{ author }}</b></p>
+    <div id="container">
+    <div id="app" style="background-color:teal; ">
+        <h1><label for="app">This will work because it's used inside the mount method</label></h1>
+        <button @click="toggleShowBooks">
+
+            <span v-if="showBooks"> Hide Details</span>
+            <span v-else>Show Details</span>
+
+        </button><br>
+
+        <p v-show="!showBooks">This Text will only be visible if the <b>Show Details</b> button is visible</p>
+
+
+        <div v-if="showBooks">
+            <p>The Title of the book is <b>{{ title }}</b></p>
+            <p>The name of the Author is <b>{{ author }}</b></p>
         <p>The age of the Author is <b>{{ age }}</b></p>
 
-        <button v-on:click="age++" style="float: left;">Increase Age</button>
-        <button v-on:click="age--" style="float: right;">Decrease Age</button>
-        
-        <!-- <div @click="title = 'Some New Title'">Change title</div> -->
-        <div @click="changeTitle('book by obama son')">Change title</div>
+        <button v-on:click="age++" style="float: left; border-radius: 5px;">Increase Age</button>
+        <button v-on:click="age--" style="float: right; border-radius: 5px">Decrease Age</button>
+
+        <button @click="changeTitle('book by obama son')" style="margin-left:240px; border-radius: 5px;;">Change title</button>
+    </div>
     </div><br>
     
     
-    <div id="test" style="background-color:firebrick; color: white; padding: 10px; margin-top: 10px; width: 800px;height: 210px; border-radius: 10px; ">
+    <div id="test" style="background-color:firebrick;  ">
         <h1><label for="test">Out side the mount method nothing will work</label></h1>
+        <button @click="toggleShowBooks">
+            <span> 
+                Hide Details about books
+            </span>
+        </button><br>
+        
+        <p v-show="!showBooks">This Text will only be visible if the <b>Show Details</b> button is visible</p>
+
+        <div v-if="showBooks">
         <p>The Title of the book is <b>{{ title }}</b></p>
         <p>The name of the Author is <b>{{ author }}</b></p>
         <p>The age of the Author is <b>{{ age }}</b></p>
 
-        <button v-on:click="age++" style="float: left;">Increase Age</button>
-        <button v-on:click="age--" style="float: right;">Decrease Age</button>
+        <button v-on:click="age++" style="float: left; border-radius: 5px">Increase Age</button>
+        <button v-on:click="age--" style="float: right; border-radius: 5px">Decrease Age</button>
+
+        <button @click="changeTitle('book by obama son')" style="margin-left:240px; border-radius: 5px;;">Change title</button>
+        </div>
+    </div>
     </div>
 
     <script src="app.js"></script>
