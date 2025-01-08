@@ -32,3 +32,8 @@ a {
 a:hover {
     color: #004d40;
 }
+
+.img{
+    height: 25px;
+    width: 25px;
+}

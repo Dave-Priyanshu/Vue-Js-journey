@@ -17,6 +17,7 @@
         <div v-if="showBooks">
             <ul>
                 <li v-for="book in books">
+                    <img :src="book.img" :alt="book.title" class="img">
                     <b>{{ book.title }}</b>, written by the renowned author <b>Mr. {{ book.author }}</b>, 
                     is a wonderful book to read. The author is currently <b>{{ book.age }}</b> years old.
                 </li>
