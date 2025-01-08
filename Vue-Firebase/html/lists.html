@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Vue - For Loop</title>
+    <link rel="stylesheet" href="../css/heading.css">
+</head>
+<body>
+    <!-- links -->
+    <p id="heading">List using Vue</p>
+    <a href="index.html">Main Page</a>
+    <a href="mouse_events.html">Mouse Click Events</a>
+    
+    <div id="lists">
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in books">
+                    <b>{{ book.title }}</b>, written by the renowned author <b>Mr. {{ book.author }}</b>, 
+                    is a wonderful book to read. The author is currently <b>{{ book.age }}</b> years old.
+                </li>
+            </ul>
+        </div>
+        <button @click="toggleShowBooks">
+
+            <span v-if="showBooks"> Hide Details</span>
+            <span v-else>Show Details</span>
+
+        </button><br>
+    </div>
+    
+    <script src="../js/list.js"></script>
+</body>
+</html>
