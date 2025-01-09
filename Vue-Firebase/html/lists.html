@@ -6,7 +6,38 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Vue - For Loop</title>
     <link rel="stylesheet" href="../css/heading.css">
-</head>
+    <style>
+        body{
+            background:#eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+        p,h3,ul{
+            margin: 0;
+            padding: 0;
+            height: auto;
+        }
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 20px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav{
+            background: #008080;
+            color: #fff;
+        }
+        .img{
+            width: 50px;       
+            height: 50px;
+            margin: 10px;   
+        }
+    </style>
+</head> 
 <body>
     <!-- links -->
     <p id="heading">List using Vue</p>
@@ -14,21 +45,26 @@
     <a href="mouse_events.html">Mouse Click Events</a>
     
     <div id="lists">
-        <div v-if="showBooks">
-            <ul>
-                <li v-for="book in books">
-                    <img :src="book.img" :alt="book.title" class="img">
-                    <b>{{ book.title }}</b>, written by the renowned author <b>Mr. {{ book.author }}</b>, 
-                    is a wonderful book to read. The author is currently <b>{{ book.age }}</b> years old.
-                </li>
-            </ul>
-        </div>
         <button @click="toggleShowBooks">
 
             <span v-if="showBooks"> Hide Details</span>
             <span v-else>Show Details</span>
-
+    
         </button><br>
+
+        <div v-if="showBooks">
+            <ul> 
+                <li v-for="book in books" :class="{fav: book.isFav}">
+                    <img :src="book.img" :alt="book.title" class="img">
+                    <b>{{ book.title }}</b>, written by the renowned author <b>Mr. {{ book.author }}</b>, 
+                    is a wonderful book to read. The author is currently <b>{{ book.age }}</b> years old.
+                    <button @onclick="toggleIsFav">
+                        <span v-if="book.isFav" @click="toggleIsFav(book)">Remove from favorites</span> 
+                        <span v-else @click="toggleIsFav(book)">Add to favorites"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
     </div>
     
     <script src="../js/list.js"></script>
